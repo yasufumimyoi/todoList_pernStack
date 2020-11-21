@@ -18,7 +18,7 @@ app.post("/todo", async (req: Request, res: Response) => {
       "insert into todo (description) values($1) returning *",
       [description]
     );
-    res.json(newTodo.row[0]);
+    res.json(newTodo.rows[0]);
   } catch (error) {
     console.error(error.message);
   }
@@ -84,5 +84,5 @@ app.delete("/todo/:id", async (req: Request, res: Response) => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log("Sever has started!!");
+  console.log("Sever has started!!!");
 });
