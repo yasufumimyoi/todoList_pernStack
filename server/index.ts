@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { pool } from "./database";
+import { pool } from "./key";
 
 import { Response, Request } from "express";
 
@@ -82,6 +82,10 @@ app.delete("/todo/:id", async (req: Request, res: Response) => {
 });
 
 const PORT = process.env.PORT || 5000;
+
+app.get('/',(req, res) => {
+  res.send("Hello World")
+})
 
 app.listen(PORT, () => {
   console.log("Sever has started!!");
